@@ -25,26 +25,26 @@ import lombok.NoArgsConstructor;
 public class Claim {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	long claimNumber;
-	String claimReason;
-	String accidentLocationStreet;
-	String accidentCity;
-	String accidentState;
-	int accidentZip;
-	String claimType;
-	long policyNumber;
+	private long claimNumber;
+	private String claimReason;
+	private String accidentLocationStreet;
+	private String accidentCity;
+	private String accidentState;
+	private int accidentPin;
+	private String claimType;
+	private long policyNumber;
 	
 	@OneToMany(mappedBy = "claim",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	List<UserRole>userrole = new ArrayList<UserRole>();
 		
 	public Claim(String claimReason, String accidentLocationStreet, String accidentCity, String accidentState,
-			int accidentZip, String claimType, long policyNumber,List<UserRole>userrole) {
+			int accidentPin, String claimType, long policyNumber,List<UserRole>userrole) {
 		super();
 		this.claimReason = claimReason;
 		this.accidentLocationStreet = accidentLocationStreet;
 		this.accidentCity = accidentCity;
 		this.accidentState = accidentState;
-		this.accidentZip = accidentZip;
+		this.accidentPin = accidentPin;
 		this.claimType = claimType;
 		this.policyNumber = policyNumber;
 		this.userrole = userrole;

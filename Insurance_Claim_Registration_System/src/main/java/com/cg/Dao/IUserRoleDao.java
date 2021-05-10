@@ -6,13 +6,11 @@ import com.cg.entites.Claim;
 import com.cg.entites.UserRole;
 
 public interface IUserRoleDao {
-
-	UserRole getUserRole(String userName);
+	
+	public boolean validateUserRole(String userName);
+	public UserRole getUserRole(String userName);
 	List<UserRole> getAllUserRoles();
-	List<UserRole> findAllBycla(Claim claim);
-//	void addUserRole(UserRole userrole);
-//	void removeUserRole(UserRole userrole);
-//	void updateUserRole(UserRole userrole);
+	List<UserRole> findAllByclaim(Claim claim);
 	void beginTransaction();
 	void commitTransaction();
 

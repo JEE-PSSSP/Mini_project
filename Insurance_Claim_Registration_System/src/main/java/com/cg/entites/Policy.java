@@ -1,16 +1,13 @@
 package com.cg.entites;
 
 
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -21,22 +18,23 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="policy")
+@Table(name="Policy")
 public class Policy {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long policyNumber;
 	private long acountNumber;
-	private double policyPremium;
+	private int policyPremium;
 	
-	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-	List<UserRole>userrole = new ArrayList<UserRole>();
+	@OneToOne
+	@JoinColumn(name="policyNumber")
+	PolicyDetails PolicyDetails;
 
-	public Policy(long acountNumber, double policyPremium,List<UserRole>userrole) {
+	public Policy(long acountNumber, int policyPremium) {
 		super();
 		this.acountNumber = acountNumber;
 		this.policyPremium = policyPremium;
-		this.userrole = userrole;
+
 		
 	}
 	

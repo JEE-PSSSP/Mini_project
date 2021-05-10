@@ -1,6 +1,7 @@
 package com.cg.entites;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,18 +13,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class ClaimsQuestions {
-	
+	@Id
+	private int policyNumber;
 	private int questionId;
-	private String ClaimType;
-	private String answer1;
-	private String answer2;
+	private String quesDesc;
+	private String quesAns1;
+	private String quesAns2;
 	
 	
-	protected ClaimsQuestions(String claimType, String answer1, String answer2) {
+	protected ClaimsQuestions(int questionId, String quesDesc, String quesAns1, String quesAns2) {
 		super();
-		ClaimType = claimType;
-		this.answer1 = answer1;
-		this.answer2 = answer2;
+		this.questionId = questionId;
+		this.quesDesc = quesDesc;
+		this.quesAns1 = quesAns1;
+		this.quesAns2 = quesAns2;
 	}
-
+		
 }

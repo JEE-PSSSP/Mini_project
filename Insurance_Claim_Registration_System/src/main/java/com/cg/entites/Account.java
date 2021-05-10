@@ -11,15 +11,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Accounts {
+public class Account {
 	@Id
 	private long accNo;
-	private String insName;
+	private String insuredName;
 	private String userName;
 	
-	public Accounts(String insName, String userName) {
+	public Account(String insuredName, String userName) {
 		super();
-		this.insName = insName;
+		this.insuredName = insuredName;
 		this.userName = userName;
 	}	
 
